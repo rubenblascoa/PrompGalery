@@ -1,0 +1,408 @@
+/* Estilos adicionales para prompts */
+
+.prompts {
+    animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.prompt-card {
+    animation: fadeIn 0.3s ease-in;
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg2);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border2);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--border);
+}
+
+/* Selección de texto */
+::selection {
+    background: var(--accentbg);
+    color: var(--accent);
+}
+
+/* Transiciones suaves */
+* {
+    transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+/* Enfoque accesible */
+:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+/* Placeholder */
+::placeholder {
+    color: var(--text3);
+    opacity: 1;
+}
+
+/* Links */
+a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: all 0.15s;
+}
+
+a:hover {
+    color: var(--accent2);
+    text-decoration: underline;
+}
+
+/* Listas */
+ul, ol {
+    margin-left: 20px;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+/* Tablas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+}
+
+th {
+    background: var(--bg3);
+    font-weight: 600;
+}
+
+/* Código */
+code {
+    background: var(--bg3);
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9em;
+}
+
+pre {
+    background: var(--bg3);
+    padding: 12px;
+    border-radius: 6px;
+    overflow-x: auto;
+    margin: 12px 0;
+}
+
+pre code {
+    background: none;
+    padding: 0;
+}
+
+/* Citaciones */
+blockquote {
+    border-left: 3px solid var(--accent);
+    padding-left: 16px;
+    margin-left: 0;
+    color: var(--text2);
+    font-style: italic;
+}
+
+/* Horizontal rule */
+hr {
+    border: none;
+    height: 1px;
+    background: var(--border);
+    margin: 20px 0;
+}
+
+/* Botones deshabilitados */
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Inputs en estado inválido */
+input:invalid,
+textarea:invalid,
+select:invalid {
+    border-color: var(--coral);
+}
+
+input:valid:focus,
+textarea:valid:focus,
+select:valid:focus {
+    border-color: var(--green);
+}
+
+/* Badges */
+.badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 600;
+    background: var(--accentbg);
+    color: var(--accent2);
+}
+
+.badge.green {
+    background: var(--greenbg);
+    color: var(--green);
+}
+
+.badge.amber {
+    background: var(--amberbg);
+    color: var(--amber);
+}
+
+.badge.coral {
+    background: var(--coralbg);
+    color: var(--coral);
+}
+
+/* Tooltip */
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    background-color: var(--bg4);
+    color: var(--text);
+    text-align: center;
+    padding: 8px 12px;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -50px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 12px;
+    border: 1px solid var(--border);
+    white-space: nowrap;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: var(--bg4) transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Spinner de carga */
+.spinner {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--border);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Mensajes flash */
+.alert {
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    font-size: 13px;
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.alert-success {
+    background: var(--greenbg);
+    color: var(--green);
+    border: 1px solid var(--green);
+}
+
+.alert-error {
+    background: var(--coralbg);
+    color: var(--coral);
+    border: 1px solid var(--coral);
+}
+
+.alert-info {
+    background: var(--cyanbg);
+    color: var(--cyan);
+    border: 1px solid var(--cyan);
+}
+
+.alert-warning {
+    background: var(--amberbg);
+    color: var(--amber);
+    border: 1px solid var(--amber);
+}
+
+/* Modal overlay */
+#modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    backdrop-filter: blur(4px);
+}
+
+#modal-overlay.open {
+    display: flex;
+}
+
+/* Animación de modal */
+.modal {
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Texto truncado */
+.truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.truncate-lines-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.truncate-lines-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Utility classes */
+.mt-0 { margin-top: 0; }
+.mt-1 { margin-top: 4px; }
+.mt-2 { margin-top: 8px; }
+.mt-3 { margin-top: 12px; }
+.mt-4 { margin-top: 16px; }
+.mt-5 { margin-top: 20px; }
+
+.mb-0 { margin-bottom: 0; }
+.mb-1 { margin-bottom: 4px; }
+.mb-2 { margin-bottom: 8px; }
+.mb-3 { margin-bottom: 12px; }
+.mb-4 { margin-bottom: 16px; }
+.mb-5 { margin-bottom: 20px; }
+
+.p-0 { padding: 0; }
+.p-1 { padding: 4px; }
+.p-2 { padding: 8px; }
+.p-3 { padding: 12px; }
+.p-4 { padding: 16px; }
+
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.text-left { text-align: left; }
+
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+
+.gap-1 { gap: 4px; }
+.gap-2 { gap: 8px; }
+.gap-3 { gap: 12px; }
+.gap-4 { gap: 16px; }
+
+/* Impresión */
+@media print {
+    nav,
+    .sidebar,
+    .right-panel,
+    .sort-btn,
+    .vote-col {
+        display: none;
+    }
+
+    .main {
+        padding: 0;
+    }
+
+    .prompt-card {
+        page-break-inside: avoid;
+        border: 1px solid #ddd;
+    }
+}
+
+/* Dark mode (ya está por defecto, aquí va la alternativa light si queremos) */
+@media (prefers-color-scheme: dark) {
+    /* Ya está en dark, nada que cambiar */
+}
+
+@media (prefers-color-scheme: light) {
+    /* Aquí irían los estilos para light mode si lo queremos soportar */
+}

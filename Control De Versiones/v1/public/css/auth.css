@@ -1,0 +1,88 @@
+/* Auth Styles */
+
+.auth-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--bg) 0%, var(--bg3) 100%);
+    padding: 20px;
+}
+
+.auth-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 40px;
+    max-width: 420px;
+    width: 100%;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.auth-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.auth-logo .logo-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+}
+
+.auth-logo h1 {
+    font-size: 24px;
+    color: var(--text);
+}
+
+.auth-logo h1 span {
+    color: var(--accent);
+}
+
+.auth-card h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.auth-subtitle {
+    text-align: center;
+    color: var(--text3);
+    font-size: 13px;
+    margin-bottom: 24px;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.auth-form .form-input {
+    padding: 12px;
+    font-size: 14px;
+}
+
+@media (max-width: 480px) {
+    .auth-card {
+        padding: 24px;
+    }
+
+    .auth-logo {
+        margin-bottom: 20px;
+    }
+
+    .auth-logo .logo-icon {
+        width: 36px;
+        height: 36px;
+    }
+
+    .auth-card h2 {
+        font-size: 20px;
+    }
+}
