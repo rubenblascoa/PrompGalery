@@ -1,0 +1,29 @@
+Funcionalidades sin implementar:
+
+Vista Explorar propia en PHP — actualmente es solo una sección SPA dentro de inicio/index.php. No tiene URL propia (/explorar), no indexa en Google, y si alguien entra directo a esa URL obtiene 404.
+Colecciones — la pestaña existe en la UI pero muestra "Próximamente". No hay tabla en BD, ni controlador, ni modelo.
+Actividad del perfil — la pestaña "Actividad" también dice "Próximamente". Podría mostrar un historial de votos, comentarios, etc.
+Página de perfil público accesible por URL — /perfil/:id existe como controlador y vista PHP, pero no hay enlace directo navegable desde fuera de la SPA. Los clicks en avatares redirigen a la URL pero el CSS/JS asume siempre la SPA de inicio/index.php.
+
+Seguridad pendiente:
+
+Verificación de email — el campo verificado existe en BD pero nunca se activa. No hay envío de email de confirmación ni flujo de verificación.
+Recuperación de contraseña — no existe ningún flujo "¿Olvidaste tu contraseña?". Sin esto, un usuario que pierde acceso no puede recuperar su cuenta.
+Strict-Transport-Security (HSTS) — está comentado en .htaccess. Hay que activarlo una vez confirmes que el servidor tiene HTTPS estable.
+Rate limiting en BD para otras acciones — el rate limiting de crear prompts y comentarios sigue siendo por sesión (se resetea si el usuario abre una sesión nueva).
+
+Bugs conocidos:
+
+El badge de notificaciones en el nav muestra siempre "3" fijo en el HTML (<span class="notif-badge" id="notif-count">3</span>). Nunca se actualiza dinámicamente con el número real.
+loadMyProfile aún tiene código muerto que intenta buscar stats en PV_TOP_CREADORES después de que loadProfileStats ya los cargó — genera una condición de carrera visual.
+El modal de editar perfil no carga los datos actuales del usuario si PV_PERFIL es null (usuario no ha recargado tras login).
+La búsqueda en el nav (handleNavSearch) hace fetch a /prompts/buscar pero los resultados muestran un dropdown flotante que no tiene paginación ni estado vacío bien manejado.
+
+Calidad de código / producción:
+
+No hay sistema de logs de errores por categoría (todo va a errores.log plano).
+No hay comando/script de limpieza de login_intentos viejos (hay que activar el Event Scheduler de MariaDB manualmente).
+No hay página de mantenimiento ni modo offline.
+Falta un favicon.ico y meta og:image para compartir en redes.
+
+Lo más urgente si vas a publicar pronto sería: recuperación de contraseña, verificación de email, y activar HSTS una vez tengas SSL. Sin recuperación de contraseña una plataforma pública es casi inutilizable para usuarios reales.
